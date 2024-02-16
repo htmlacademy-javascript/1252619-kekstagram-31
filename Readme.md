@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
 * Студент: [Sergey Lobanov](https://up.htmlacademy.ru/javascript/31/user/1252619).
-* Наставник: [Станислав Михайлов](https://htmlacademy.ru/profile/id139638).
+* Наставник: [Станислав Михайлов](https://htmlacademy.ru/profile/id139638)
 
 ---
 
