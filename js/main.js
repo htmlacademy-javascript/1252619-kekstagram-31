@@ -28,28 +28,51 @@ const OBJECT = [
   }
 ];
 
-const message =  {
-Всё отлично!
-В целом всё неплохо. Но не всё.
-Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.
-Моя бабушка случайно чихнула с фотоаппаратом в руках и у неё получилась фотография лучше.
-Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.
-Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!
+const SIMULAR_OBJECT_PEOPLE = 25;
+
+const id = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25,];
+
+const url = photos/{{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25,}}.jpg;
+
+const discription =  {
+Бывают моменты, кода не хочется ни длинных строк, ни философских рассуждений.Просто пишешь: "Офигенно!", и бежишь жить дальше.
 };
 
 const MIN_LIKES = 15;
 const MAX_LIKES = 200;
 
+
+const getRandomPositiveInteger = (a, b) => {
+const lower = Math.ceil(Math.min(a, b));
+const upper = Math.floor(math.max(a, b ));
+let previousResult = -1;
+return () => {
+const result = math.floor(math.random() * (upper - lower +1) + lower);
+
+if (previousResult !== result) {
+previousResult = result;
+return result;
+}
+return result === upper ? lower : result +1;
+};
+};
+
 const gerRandomArrayElement = (Element) => {
   return Element[getRandomPositiveInteger(0, Element.length - 1)];
+};
+
+
+const createinfo = () => {
+return {
+name: getRandomArrayElemen(OBJECT),
+id: getRandomArrayElemen(ID),
+url: getRandomArrayElemen(url),
+discription: getRandomArrayElemen(discription),
 }
 
-function createPeople() {
-  const randomnameIndex = getRandomPositiveInteger(0, OBJECT.length - 1);
-  const randomidIndex = getRandomPositiveInteger(0, ID.length -1);
-  const randomurlIndex = getRandomPositiveInteger(0, URL.length -1);
-  const randomdiscription = getRandomPositiveInteger(0, DESCRIPTION.length -1);
-  const randomlike = getRandomPositiveInteger(0, LIKE.length - 1);
+};
+const simulatorPeople = Array.from({length: 25}, createinfo);
+console.log(simulatorPeople);
 
   return {
     id: ID[randomidIndex],
@@ -57,10 +80,6 @@ function createPeople() {
     description: DESCRIPTION[descriptionIndex],
     like: LIKE[likeIndex],
   };
-};
-
-console.log(createPeople);
-
 
 function newfoto() {
   let id = 1;
