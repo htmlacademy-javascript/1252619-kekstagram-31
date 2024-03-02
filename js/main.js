@@ -1,95 +1,49 @@
-const OBJECT = [
-  {
-  name: 'Амадей',
-  name: 'Якоб',
-  name: 'Авраам',
-  name: 'вольфганг',
-  name: 'бартоломео',
-  name: 'Кристофер',
-  name: 'дензел',
-  name: 'Бенджамин',
-  name: 'теодор',
-  name: 'рудольф',
-  name: 'франциск',
-  name: 'честер',
-  name: 'соломон',
-  name: 'артур',
-  name: 'давид',
-  name: 'гульельмо',
-  name: 'луиз',
-  name: 'нестор',
-  name: 'себастьян',
-  name: 'людвиг',
-  name: 'джухеппе',
-  name: 'клаудио',
-  name: 'джованни',
-  name: 'ментор',
-  name: 'Пабло',
-  }
-];
-
-const SIMULAR_OBJECT_PEOPLE = 25;
-
-const id = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25,];
-
-const url = photos/{{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25,}}.jpg;
-
-const discription =  {
-Бывают моменты, кода не хочется ни длинных строк, ни философских рассуждений.Просто пишешь: "Офигенно!", и бежишь жить дальше.
-};
+const discription = ['Бывают моменты' , 'кода не хочется ни длинных строк' , 'ни философских рассуждений.Просто пишешь: Офигенно!', 'и бежишь жить дальше.'];
 
 const MIN_LIKES = 15;
 const MAX_LIKES = 200;
 
+const MESSAGE = ['Всё отлично!', 'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.', 'Но не всё.'];
+const NAMES = ['Tanya', 'Julia', 'Alina', 'Katya', 'Johan'];
 
-const getRandomPositiveInteger = (a, b) => {
-const lower = Math.ceil(Math.min(a, b));
-const upper = Math.floor(math.max(a, b ));
-let previousResult = -1;
-return () => {
-const result = math.floor(math.random() * (upper - lower +1) + lower);
+const PHOTOS = 25;
 
-if (previousResult !== result) {
-previousResult = result;
-return result;
+
+
+const generateRandomID = (a, b) =>{
+  const lower = Math.ceil(Math.min(a, b));
+  const upper = Math.floor(Math.max(a, b));
+  return Math.floor(Math.random() * (upper - lower + 1) + lower);
 }
-return result === upper ? lower : result +1;
-};
-};
-
-const gerRandomArrayElement = (Element) => {
-  return Element[getRandomPositiveInteger(0, Element.length - 1)];
-};
-
-
-const createinfo = () => {
-return {
-name: getRandomArrayElemen(OBJECT),
-id: getRandomArrayElemen(ID),
-url: getRandomArrayElemen(url),
-discription: getRandomArrayElemen(discription),
-}
-
-};
-const simulatorPeople = Array.from({length: 25}, createinfo);
-console.log(simulatorPeople);
-
+const createComments = (a)=> {
   return {
-    id: ID[randomidIndex],
-    url: URL[randomurlIndex],
-    description: DESCRIPTION[descriptionIndex],
-    like: LIKE[likeIndex],
-  };
-
-function newfoto() {
-  let id = 1;
-
-  return () => {
-    const photo = {};
-    photo.id = id;
-    photo.url = 'photo/${id}.jpg';
-    photo.discription = 'это фотография №${id}';
-    photo.like = numLikes();
-  };
-
+    id: a,
+    avatar: `img/avatar-${generateRandomID(1,6)}.svg`,
+    MESSAGE: MESSAGE[generateRandomID(0,MESSAGE.length - 1)],
+    name: NAMES[generateRandomID(0,NAMES.length - 1)],
+  }
 };
+
+
+const arrayComments = [];
+for(let i = 1; i <= generateRandomID(1, 30); i++){
+  arrayComments.push(createComments(i));
+}
+
+const arrayPhotos = [];
+const createPhotos = (a)=> {
+  return {
+    id: a,
+    url: `photos/${a}.jpg`,
+    description: discription[generateRandomID(0,3)],
+    likes: generateRandomID(MIN_LIKES,MAX_LIKES),
+    comments: arrayComments,
+  }
+};
+for(let i = 1; i <= PHOTOS; i++){
+  arrayPhotos.push(createPhotos(i));
+}
+
+
+
+console.log(arrayPhotos);
