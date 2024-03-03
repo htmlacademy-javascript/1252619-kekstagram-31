@@ -1,13 +1,3 @@
-import'./data.js';
-import {arrayComments} from'./data.js';
-import {createPhotos} from'./data.js';
-
-
-import'./util.js';
-import {generateRandomID} from'./util.js';
-import {createComments} from'./util.js';
-
-
 const discription = ['Бывают моменты' , 'кода не хочется ни длинных строк' , 'ни философских рассуждений.Просто пишешь: Офигенно!', 'и бежишь жить дальше.'];
 
 const MIN_LIKES = 15;
