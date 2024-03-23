@@ -1,5 +1,5 @@
-import {generateRandomID} from './util.js';
 import {PHOTOS, NAMES, MESSAGE, MAX_LIKES, MIN_LIKES, DESCRIPTION} from './constants.js';
+import {generateRandomID} from './utils.js';
 
 
 const createComments = (a)=> {
