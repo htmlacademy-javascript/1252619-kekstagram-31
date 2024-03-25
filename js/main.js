@@ -8,7 +8,9 @@ const NAMES = ['Tanya', 'Julia', 'Alina', 'Katya', 'Johan'];
 
 const PHOTOS = 25;
 
+import { pictureNode } from './data.js';
 
+<<<<<<< Updated upstream
 
 const generateRandomID = (a, b) =>{
   const lower = Math.ceil(Math.min(a, b));
@@ -47,3 +49,19 @@ for(let i = 1; i <= PHOTOS; i++){
 
 
 console.log(arrayPhotos);
+=======
+pictureNode();
+
+pictureNode.addEventListener('click', (evt) => {
+const currentPictureNode = evt.target.closest('.picture');
+
+if (currentPictureNode) {
+  openBigPicture(currentPictureNode.dataset.pictureid);
+}
+
+});
+
+import { openBigPicture } from './data.js';
+
+openBigPicture();
+>>>>>>> Stashed changes
