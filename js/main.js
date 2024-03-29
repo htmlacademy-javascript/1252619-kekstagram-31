@@ -1,16 +1,17 @@
 import {renderPhotos} from './picture.js';
+import {openBigPicture} from './big-picture.js';
+import {arrayPhotos} from  './data.js';
+
 
 renderPhotos();
+openBigPicture(arrayPhotos);
 
-import { pictureNode } from './data.js';
+// pictureNode.addEventListener('click', (evt) => {
+//   const currentPictireNode = evt.target.closest('picture');
+// console.log(pictureNode)
 
-pictureNode();
+//   if (currentPictireNode) {
+//     openBigPicture(currentPictireNode.dataset.pictureId);
+//   }
+// });
 
-pictureNode.addEventListener('click', (evt) => {
-const currentPictureNode = evt.target.closest('.picture');
-
-});
-
-import { openBigPicture } from './big-picture.js';
-
-openBigPicture();

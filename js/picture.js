@@ -10,6 +10,7 @@ export function renderPhotos () {
     image.alt = photo.description;
     thumbnail.querySelector('.picture__comments').textContent = photo.comments.length;
     thumbnail.querySelector('.picture__likes').textContent = photo.likes;
+    image.dataset.id = photo.id;
 
     container.appendChild(thumbnail);
   });
